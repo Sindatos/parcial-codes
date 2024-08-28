@@ -1,0 +1,8 @@
+import math
+x = 1
+y = 1
+a = math.sqrt((pow(x,y))*((math.sqrt(pow(y,x)+3))/(8)))
+b = pow((12*y-pow(x,2+y)*2)/((32*y-5)/(pow(x*y,2))),3)
+
+z = pow(a/b, 3)
+print(z)
