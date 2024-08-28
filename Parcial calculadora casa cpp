@@ -1,0 +1,103 @@
+#include <iostream>;
+using namespace std;
+
+int main(){
+    int largo = 0, ancho = 0;
+    int habitaciones = 0, areahab = 0, banhos = 0, areabanhos = 0;
+    int areasocial = 0, social = 0;
+    int patio = 0, areapatio = 0;
+    int garaje = 0, areagaraje = 0;
+    int valormetro = 0;
+    cout<<"Bienvenido al calculador TUTTICUADRATI"<<endl;
+    cout<<"Ingrese numero de habitaciones"<<endl;
+    cin >> habitaciones;
+
+    if (habitaciones <= 1){
+        habitaciones = 1;
+    }else if (habitaciones >= 3){
+        habitaciones = 3;
+    }
+
+    cout<<"Ingrese el ancho de las habitaciones: "<<endl;
+    cin >> ancho;
+    if (ancho <= 2){
+        ancho = 2;
+    }else if (ancho >= 10){
+        ancho = 10;
+    }
+    cout<<"Ingrese el largo de las habitaciones: "<<endl;
+    cin >> largo;
+    if (largo <= 2){
+        largo = 2;
+    }else if (ancho >= 10){
+        largo = 10;
+    }
+
+    areahab = (ancho*largo) * habitaciones;
+
+    cout<<"Ingrese el numero de banhos: "<<endl;
+    cin >> banhos;
+
+    if (banhos <= 1){
+        banhos = 1;
+        areabanhos = 9;
+    }else{
+        areabanhos = 4;
+    }
+    cout<<"Desea area social 1 = Premium \\ 0 = Regular"<<endl;
+    cin >> social;
+
+    if (social == 1){
+        areasocial = 40;
+    }else{
+        areasocial = 20;
+    }
+
+    cout<<"Desea Patio 1 = Si \\ 0 = No"<<endl;
+    cin >> patio;
+
+    if (patio == 1){
+        cout<<"Ingrese el ancho del patio: "<<endl;
+        cin >> ancho;
+        if (ancho <= 2){
+            ancho = 2;
+        }else if (ancho >= 8){
+            ancho = 8;
+        }
+        cout<<"Ingrese el largo del patio: "<<endl;
+        cin >> largo;
+        if (largo <= 2){
+            largo = 2;
+        }else if (ancho >= 8){
+            largo = 8;
+        }
+        areapatio = largo*ancho;
+    }else{
+        areapatio = 0;
+    }
+    cout<<"Garaje simple = 1 \\ doble = 0"<<endl;
+    cin >> garaje;
+
+    if (garaje == 1){
+        areagaraje = 10;
+    }else{
+        areagaraje = 20;
+    }
+
+    int areatotal = areahab + areabanhos + areagaraje + areapatio + areasocial;
+
+    if ((areatotal - areagaraje) < 100){
+        valormetro = 8000000;
+    } else {
+        valormetro = 9000000;
+    }
+
+    int valortotal = (areatotal-areagaraje)+(areagaraje*5000000)*valormetro*1.25;
+
+    if (valortotal > 1000000000){
+        valortotal = valortotal - 0.5;
+    }
+
+    cout<<"El area total es de: "<<areatotal<<endl;
+    cout<<"El valor total es de: "<<valortotal<<endl;
+}
